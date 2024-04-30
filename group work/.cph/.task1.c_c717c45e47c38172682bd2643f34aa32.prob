@@ -1,0 +1,1 @@
+{"name":"Local: task1","url":"/Users/hasnat/Documents/GitHub/University UIU/group work/task1.c","tests":[{"id":1714375827589,"input":"12 3\n-1 -2 -3 4 5 6 -7 -8 -9 10 11 12","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hasnat/Documents/GitHub/University UIU/group work/task1.c","group":"local","local":true}
