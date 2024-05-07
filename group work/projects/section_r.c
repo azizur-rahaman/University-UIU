@@ -35,7 +35,8 @@ void updateRun(){
     printf("which team's player's run you wish to be updated(a/b): ");
 
     char choice;
-    scanf("%c", &choice);
+    scanf(" %c", &choice);
+    fflush(stdin);
 
     char name[100];
     printf("Player Name: ");
@@ -50,7 +51,7 @@ void updateRun(){
                 break;
             }  
         }
-
+        printf("Enter Runs: ");
         scanf("%d", &team1[index].runs);
 
     }else {
@@ -68,24 +69,28 @@ void updateRun(){
 }
 
 void displayTeam1Info(){
+    printf("<------ Team 1 Information ------>\n");
     for(int i=0; i<11; i++){
+        printf("Player %d Info:\n", i+1);
         printf("Name: %s\n", team1[i].name);
         printf("Age: %d\n", team1[i].age);
         printf("Runs: %d\n", team1[i].runs);
         printf("Wickets: %d\n", team1[i].wickets);
         printf("Ratings: %d\n", team1[i].ratings);
-    
+        printf("\n");
     }
 }
 
 void displayTeam2Info(){
+    printf("<------ Team 2 Information ------>\n");
     for(int i=0; i<11; i++){
+        printf("Player %d info:\n", i+1);
         printf("Name: %s\n", team2[i].name);
         printf("Age: %d\n", team2[i].age);
         printf("Runs: %d\n", team2[i].runs);
         printf("Wickets: %d\n", team2[i].wickets);
         printf("Ratings: %d\n", team2[i].ratings);
-    
+        printf("\n");
     }
 }
 
@@ -100,8 +105,8 @@ void displayManOfTheMatch(int index){
 
 void YoungerPlayer(){
     char choice;
-    printf("Which Team(1/2) younger player information you want to display?: ");
-    scanf("%c", &choice);
+    printf("Which Team younger player information you want to display?(a/b): ");
+    scanf(" %c", &choice);
 
     int min = 100;
     int index = 0;
@@ -154,8 +159,9 @@ void MostRatedPlayerTeam1(){
     printf("Ratings: %d\n", team1[index].ratings);
 
     FILE *p;
-    p = fopen("score.txt\n", "w");
+    p = fopen("score.txt\n", "a");
     fprintf(p, "%d %d", team1[index].ratings, index);
+    fclose(p);
 }
 
 void MostRatedPlayerTeam2(){
@@ -180,6 +186,7 @@ void MostRatedPlayerTeam2(){
     FILE *p;
     p = fopen("score.txt", "a");
     fprintf(p, "%d %d\n",team2[index].ratings, index);
+    fclose(p);
 }
 
 void ManofTheMatch(){
@@ -258,63 +265,62 @@ int main(){
         exit(1);
     }
 
-    for(int i=0; i<11; i++){
-        fscanf(fptr, "%[^\n] %d %d %d", &team1[i].name, &team1[i].age, &team1[i].runs, &team1[i].wickets);
+    for (int i = 0; i < 11; i++) {
+        if (fscanf(fptr, "%s %d %d %d", team1[i].name, &team1[i].age, &team1[i].runs, &team1[i].wickets) != 4) {
+            printf("Error reading Team1 data\n");
+            fclose(fptr);
+            exit(1);
+        }
         team1[i].ratings = calculate_ratings(team1[i].runs, team1[i].wickets);
     }
     fclose(fptr);
 
-    fptr = fopen("Team2.txt", "r");
+    FILE *ptr = fopen("Team2.txt", "r");
 
-    if(fptr == NULL){
+    if(ptr == NULL){
         printf("Error in opening Team2.txt File\n");
         exit(1);
     }
 
 
-    for (int i = 0; i < 11; i++)
-    {
-        fscanf(fptr, "%[^\n] %d %d %d", &team2[i].name, &team2[i].age, team2[i].runs, team2[i].wickets);
+    for (int i = 0; i < 11; i++) {
+        if (fscanf(ptr, "%s %d %d %d", team2[i].name, &team2[i].age, &team2[i].runs, &team2[i].wickets) != 4) {
+            printf("Error reading Team2 data\n");
+            fclose(ptr);
+            exit(1);
+        }
         team2[i].ratings = calculate_ratings(team2[i].runs, team2[i].wickets);
     }
 
-    fclose(fptr);
+    fclose(ptr);
 printf("3\n");
 
-    char ch;
     do{
+        int n;
         system("cls");
         showMenu();
         printf("Enter: ");
-        scanf("%c", &ch);
+        scanf("%d", &n);
 
-        if(ch == 'q' || 'Q'){
+        if(n == 81 || n == 113){
             printf("Thank you");
             exit(0);
         }else {
-            switch (ch)
-            {
-            case '1':
+
+            if(n == 1){
                 displayTeam1Info();
-                break;
-            case '2':
+            }else if(n == 2){
                 displayTeam2Info();
-                break;
-            case '3':
+            }else if(n == 3){
                 updateRun();
-                break;
-            case '4':
+            }else if(n == 4){
                 YoungerPlayer();
-                break;
-            case '5':
+            }else if(n == 5){
                 MostRatedPlayerTeam1();
-                break;
-            case '6':
+            }else if(n == 6){
                 MostRatedPlayerTeam2();
-                break;
-            case '7':
+            }else if(n == 7){
                 ManofTheMatch();
-                break;
             }
         }
     }while (1);

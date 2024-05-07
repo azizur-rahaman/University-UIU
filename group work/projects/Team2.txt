@@ -1,11 +1,15 @@
-Steve Smith 32 9000 10
-David Warner 35 11000 3
-Pat Cummins 28 500 200
-Glenn Maxwell 33 2000 50
-Mitchell Starc 31 1000 300
-Aaron Finch 35 7500 0
-Adam Zampa 29 100 150
-Marcus Stoinis 31 3000 50
-Travis Head 28 1500 20
-Matthew Wade 33 2000 0
-Josh Hazlewood 30 200 250
+
+
+
+
+Smith 32 9000 10
+Warner 35 11000 3
+Cummins 28 500 200
+Maxwell 33 2000 50
+Starc 31 1000 300
+Finch 35 7500 0
+Zampa 29 100 150
+Stoinis 31 3000 50
+Head 28 1500 20
+Wade 33 2000 0
+Hazlewood 30 200 250
