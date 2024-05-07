@@ -322,6 +322,9 @@ printf("3\n");
             }else if(n == 7){
                 ManofTheMatch();
             }
+
+            printf("Press any key to continue...");
+            getch();
         }
     }while (1);
 }
