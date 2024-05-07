@@ -1,0 +1,84 @@
+Mohammad Ashraful
+34
+Batter
+2001
+235
+70
+21
+8350
+131
+30
+10
+Retired
+Mehidy Hasan Miraz
+25
+Allrounder
+2015
+70
+30
+20
+775
+100
+5
+1
+Active
+Mohammad Mushfiqur Rahim
+35
+Wicketkeeper Batter
+2005
+243
+35
+15
+6945
+144
+37
+12
+Active
+Mashrafee Bin Mortaza
+40
+Allrounder
+2000
+218
+29
+26
+4950
+128
+23
+11
+Retired
+Mustafizur Rahman
+27
+Bowler
+2015
+86
+25
+20
+3531
+142
+0
+0
+Active
+Shakib Al Hasan
+35
+Allrounder
+2006
+228
+75
+25
+7069
+134
+33
+13
+Active
+Tamim Iqbal Khan
+33
+Opening Batter
+2006
+235
+73
+23
+8146
+158
+37
+15
+Active
