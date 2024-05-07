@@ -246,31 +246,40 @@ int main(){
         system("cls");
     }while (1);
 
+    fclose(loginInfo);
+
 
     FILE *fptr;
     fptr = fopen("Team1.txt", "r");
 
 
     if(fptr == NULL){
-        printf("Error in opening file");
+        printf("Error in opening Team1.txt File\n");
         exit(1);
     }
 
     for(int i=0; i<11; i++){
-        fscanf(fptr, "%s %d %d %d", &team1[i].name, &team1[i].age, &team1[i].runs, &team1[i].wickets);
+        fscanf(fptr, "%[^\n] %d %d %d", &team1[i].name, &team1[i].age, &team1[i].runs, &team1[i].wickets);
         team1[i].ratings = calculate_ratings(team1[i].runs, team1[i].wickets);
     }
     fclose(fptr);
 
     fptr = fopen("Team2.txt", "r");
 
+    if(fptr == NULL){
+        printf("Error in opening Team2.txt File\n");
+        exit(1);
+    }
+
+
     for (int i = 0; i < 11; i++)
     {
-        fscanf(fptr, "%s %d %d %d", &team2[i].name, &team2[i].age, team2[i].runs, team2[i].wickets);
+        fscanf(fptr, "%[^\n] %d %d %d", &team2[i].name, &team2[i].age, team2[i].runs, team2[i].wickets);
         team2[i].ratings = calculate_ratings(team2[i].runs, team2[i].wickets);
     }
-    fclose(fptr);
 
+    fclose(fptr);
+printf("3\n");
 
     char ch;
     do{
