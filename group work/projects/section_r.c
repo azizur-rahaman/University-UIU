@@ -296,35 +296,37 @@ int main(){
 printf("3\n");
 
     do{
-        int n;
+        char ch;
         system("cls");
         showMenu();
+        fflush(stdin);
         printf("Enter: ");
-        scanf("%d", &n);
+        scanf(" %c", &ch);
 
-        if(n == 81 || n == 113){
+        if(ch == 'q' || ch == 'Q'){
             printf("Thank you");
             exit(0);
         }else {
 
-            if(n == 1){
+            if(ch  == '1'){
                 displayTeam1Info();
-            }else if(n == 2){
+            }else if(ch == '2'){
                 displayTeam2Info();
-            }else if(n == 3){
+            }else if(ch == '3'){
                 updateRun();
-            }else if(n == 4){
+            }else if(ch == '4'){
                 YoungerPlayer();
-            }else if(n == 5){
+            }else if(ch == '5'){
                 MostRatedPlayerTeam1();
-            }else if(n == 6){
+            }else if(ch == '6'){
                 MostRatedPlayerTeam2();
-            }else if(n == 7){
+            }else if(ch == '7'){
                 ManofTheMatch();
             }
 
+            char ignote;
             printf("Press any key to continue...");
-            getch();
+            getc(ignote);
         }
     }while (1);
 }
