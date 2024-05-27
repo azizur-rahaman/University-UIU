@@ -1,16 +1,19 @@
-#include<stdio.h>
-int main(){
+#include <stdio.h>
+#include <string.h>
 
-FILE *fptr;
+int sum = 0;
+int reverse(int x){
 
-fptr = fopen("test.txt","r");
-char str[100];
-
-while (fscanf(fptr, "%s", str) != EOF)
-{
-        puts(str);
+   if(x > 0){
+        int r = x % 10;
+        sum = sum * 10 + r;
+        reverse(x / 10);
+   }
+   return  sum;
 }
 
-
-
+int main()
+{
+    
+    printf("%d\n", reverse(1234));
 }

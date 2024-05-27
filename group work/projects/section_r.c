@@ -1,8 +1,14 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+/*
+ Write team information here
+*/
 
-struct Cricketer {
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+struct Cricketer
+{
     char name[100];
     int age;
     int runs;
@@ -10,29 +16,13 @@ struct Cricketer {
     int ratings;
 };
 
-struct Cricketer team1[11],team2[11];
+struct Cricketer team1[11], team2[11];
 
-
-int calculate_ratings(int runs, int wickets) {
-    int ratings = (wickets * 8);
-
-    if(runs > 75){
-        ratings += 24;
-    }else if(runs > 50){
-        ratings += 20;
-    }else if(runs >= 20){
-        ratings += 12;
-    }else {
-        ratings += 4;
-    }
-    
-    return ratings;
-}
-
-void updateRun(){
+void updateRun()
+{
 
     int team;
-    printf("which team's player's run you wish to be updated(a/b): ");
+    printf("which team's player's run wish to be updated(a/b): ");
 
     char choice;
     scanf(" %c", &choice);
@@ -44,34 +34,39 @@ void updateRun(){
 
     int index = 0;
 
-    if(choice == 'a'){
-        for(int i=0; i<11; i++){
-            if(strcmp(team1[i].name, name) == 0){
+    if (choice == 'a')
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            if (strcmp(team1[i].name, name) == 0)
+            {
                 index = i;
                 break;
-            }  
+            }
         }
         printf("Enter Runs: ");
         scanf("%d", &team1[index].runs);
-
-    }else {
-        for(int i=0; i<11; i++){
-            if(strcmp(team2[i].name, name) == 0){
+    }
+    else
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            if (strcmp(team2[i].name, name) == 0)
+            {
                 index = i;
                 break;
-            }  
+            }
         }
-
+        printf("Enter Runs: ");
         scanf("%d", &team2[index].runs);
-    
     }
-
 }
 
-void displayTeam1Info(){
-    printf("<------ Team 1 Information ------>\n");
-    for(int i=0; i<11; i++){
-        printf("Player %d Info:\n", i+1);
+void displayTeam1Info()
+{
+    printf("################ Team 1 Information ################\n");
+    for (int i = 0; i < 11; i++)
+    {
         printf("Name: %s\n", team1[i].name);
         printf("Age: %d\n", team1[i].age);
         printf("Runs: %d\n", team1[i].runs);
@@ -81,10 +76,11 @@ void displayTeam1Info(){
     }
 }
 
-void displayTeam2Info(){
-    printf("<------ Team 2 Information ------>\n");
-    for(int i=0; i<11; i++){
-        printf("Player %d info:\n", i+1);
+void displayTeam2Info()
+{
+    printf("################ Team 2 Information ################\n");
+    for (int i = 0; i < 11; i++)
+    {
         printf("Name: %s\n", team2[i].name);
         printf("Age: %d\n", team2[i].age);
         printf("Runs: %d\n", team2[i].runs);
@@ -94,16 +90,9 @@ void displayTeam2Info(){
     }
 }
 
-void displayManOfTheMatch(int index){
-    printf("<----- Man Of The Match ----->\n");
-    printf("Name: %s\n", team1[index].name);
-    printf("Age: %d\n", team1[index].age);
-    printf("Runs: %d\n", team1[index].runs);
-    printf("Wickets: %d\n", team1[index].wickets);
-    printf("Ratings: %d\n", team1[index].ratings);
-}
 
-void YoungerPlayer(){
+void YoungerPlayer()
+{
     char choice;
     printf("Which Team younger player information you want to display?(a/b): ");
     scanf(" %c", &choice);
@@ -111,9 +100,12 @@ void YoungerPlayer(){
     int min = 100;
     int index = 0;
 
-    if(choice == 'a'){
-        for(int i=0; i<11; i++){
-            if(team1[i].age < min){
+    if (choice == 'a')
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            if (team1[i].age < min)
+            {
                 min = team1[i].age;
                 index = i;
             }
@@ -123,9 +115,13 @@ void YoungerPlayer(){
         printf("Runs: %d\n", team1[index].runs);
         printf("Wickets: %d\n", team1[index].wickets);
         printf("Ratings: %d\n", team1[index].ratings);
-    }else {
-        for(int i=0; i<11; i++){
-            if(team2[i].age < min){
+    }
+    else
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            if (team2[i].age < min)
+            {
                 min = team2[i].age;
                 index = i;
             }
@@ -136,21 +132,21 @@ void YoungerPlayer(){
         printf("Wickets: %d\n", team2[index].wickets);
         printf("Ratings: %d\n", team2[index].ratings);
     }
-
 }
 
-void MostRatedPlayerTeam1(){
+void MostRatedPlayerTeam1()
+{
     int max = 0;
     int index = 0;
 
-    for(int i=0; i<11; i++){
-        if(team1[i].ratings > max){
+    for (int i = 0; i < 11; i++)
+    {
+        if (team1[i].ratings > max)
+        {
             max = team1[i].ratings;
             index = i;
         }
     }
-
-
 
     printf("Name: %s\n", team1[index].name);
     printf("Age: %d\n", team1[index].age);
@@ -159,25 +155,26 @@ void MostRatedPlayerTeam1(){
     printf("Ratings: %d\n", team1[index].ratings);
 
     FILE *p;
-    p = fopen("score.txt\n", "a");
-    fprintf(p, "%d %d", team1[index].ratings, index);
+    p = fopen("score.txt", "w");
+    fprintf(p, "%d %d\n", team1[index].ratings, index);
     fclose(p);
 }
 
-void MostRatedPlayerTeam2(){
+void MostRatedPlayerTeam2()
+{
     int max = 0;
     int index = 0;
 
-    for(int i=0; i<11; i++){
-        if(team2[i].ratings > max){
+    for (int i = 0; i < 11; i++)
+    {
+        if (team2[i].ratings > max)
+        {
             max = team2[i].ratings;
             index = i;
         }
     }
 
-
-
-    printf( "Name: %s\n", team2[index].name);
+    printf("Name: %s\n", team2[index].name);
     printf("Age: %d\n", team2[index].age);
     printf("Runs: %d\n", team2[index].runs);
     printf("Wickets: %d\n", team2[index].wickets);
@@ -185,148 +182,195 @@ void MostRatedPlayerTeam2(){
 
     FILE *p;
     p = fopen("score.txt", "a");
-    fprintf(p, "%d %d\n",team2[index].ratings, index);
+    fprintf(p, "%d %d\n", team2[index].ratings, index);
     fclose(p);
 }
 
-void ManofTheMatch(){
+void ManofTheMatch()
+{
 
-    FILE *pt;
+    FILE *file;
 
-    pt = fopen("score.txt", "r");
-    int ratings1;
-    int index1;
-    fscanf(pt, "%d %d", &ratings1, &index1);
+    file = fopen("score.txt", "r");
 
-    int ratings2;
-    int index2;
-    fscanf(pt, "%s %d", &ratings2, &index2);
-
-
-    if(ratings1 > ratings2){
-        displayManOfTheMatch(index1);
-    }else {
-        displayManOfTheMatch(index2);
+    if (file == NULL)
+    {
+        printf("Error: score.txt file not found...!");
     }
-    
+
+    int runs1, index1, runs2, index2;
+    fscanf(file, "%d %d", &runs1, &index1);
+    fscanf(file, "%d %d", &runs2, &index2);
+
+
+   
+
+    printf("################ Man Of The Match ################\n");
+
+    if (runs1 > runs2)
+    {
+        printf("Name: %s\n", team1[index1].name);
+        printf("Age: %d\n", team1[index1].age);
+        printf("Runs: %d\n", team1[index1].runs);
+        printf("Wickets: %d\n", team1[index1].wickets);
+        printf("Ratings: %d\n", team1[index1].ratings);
+    }
+    else
+    {
+
+        printf("Name: %s\n", team2[index2].name);
+        printf("Age: %d\n", team2[index2].age);
+        printf("Runs: %d\n", team2[index2].runs);
+        printf("Wickets: %d\n", team2[index2].wickets);
+        printf("Ratings: %d\n", team2[index2].ratings);
+    }
+
+
+    fclose(file);
 }
 
+int main()
+{
 
-void showMenu(){
-    printf("<--------- Welcome to the Cricket Tournament --------->\n");
-    printf("1. Display Team 1 Information\n");
-    printf("2. Display Team 2 Information\n");
-    printf("3. Team Player Runs\n");
-    printf("4. Younger Player Information\n");
-    printf("5. Most Rated Player Team 1\n");
-    printf("6. Most Rated Player Team 2\n");
-    printf("7. Man of the Match\n");
-}
+    FILE *fil;
+    fil = fopen("LogIn.txt", "r");
 
-int main(){
-
-    FILE *loginInfo;
-    loginInfo = fopen("LogIn.txt", "r");
-
-    char username[100];
+    char name[100];
     char password[100];
-    fscanf(loginInfo, "%s %s", &username, &password);
+    fscanf(fil, "%s %s", &name, &password);
 
-    do {
+    do
+    {
         char user[100];
         char pass[100];
-        
+
         system("cls");
-        printf("<--------- Welcome to the Login Page --------->\n");
+        printf("################ Login Page ################\n");
         printf("Username: ");
         gets(user);
         printf("Password: ");
         gets(pass);
 
-        if(strcmp(user,username) == 0 && strcmp(pass, password) == 0){
+        if (strcmp(user, name) == 0 && strcmp(pass, password) == 0)
+        {
             printf("Login Successful\n");
             break;
-        }else{
+        }
+        else
+        {
             printf("Invalid Credentials\n");
+            getch();
         }
 
         system("cls");
-    }while (1);
+    } while (true);
 
-    fclose(loginInfo);
+    fclose(fil);
 
+    FILE *p;
+    p = fopen("Team1.txt", "r");
 
-    FILE *fptr;
-    fptr = fopen("Team1.txt", "r");
-
-
-    if(fptr == NULL){
+    if (p == NULL)
+    {
         printf("Error in opening Team1.txt File\n");
         exit(1);
     }
 
-    for (int i = 0; i < 11; i++) {
-        if (fscanf(fptr, "%s %d %d %d", team1[i].name, &team1[i].age, &team1[i].runs, &team1[i].wickets) != 4) {
-            printf("Error reading Team1 data\n");
-            fclose(fptr);
-            exit(1);
+    for (int i = 0; i < 11; i++)
+    {
+        fscanf(p, "%s %d %d %d", team1[i].name, &team1[i].age, &team1[i].runs, &team1[i].wickets);
+
+        int wickets = team1[i].wickets;
+        int runs = team1[i].runs;
+        int ratings = (wickets * 8);
+
+        if (runs > 75)
+        {
+            ratings += 24;
         }
-        team1[i].ratings = calculate_ratings(team1[i].runs, team1[i].wickets);
+        else if (runs > 50 && runs <= 75)
+        {
+            ratings += 20;
+        }
+        else if (runs >= 20 && runs <= 50)
+        {
+            ratings += 12;
+        }
+        else
+        {
+            ratings += 4;
+        }
+
+        team1[i].ratings = ratings;
     }
-    fclose(fptr);
+    fclose(p);
 
-    FILE *ptr = fopen("Team2.txt", "r");
+    FILE *pp = fopen("Team2.txt", "r");
 
-    if(ptr == NULL){
+    if (pp == NULL)
+    {
         printf("Error in opening Team2.txt File\n");
         exit(1);
     }
 
-
-    for (int i = 0; i < 11; i++) {
-        if (fscanf(ptr, "%s %d %d %d", team2[i].name, &team2[i].age, &team2[i].runs, &team2[i].wickets) != 4) {
-            printf("Error reading Team2 data\n");
-            fclose(ptr);
-            exit(1);
-        }
+    for (int i = 0; i < 11; i++)
+    {
+        fscanf(pp, "%s %d %d %d", team2[i].name, &team2[i].age, &team2[i].runs, &team2[i].wickets);
         team2[i].ratings = calculate_ratings(team2[i].runs, team2[i].wickets);
     }
 
-    fclose(ptr);
-printf("3\n");
+    fclose(pp);
 
-    do{
+    do
+    {
         char ch;
         system("cls");
-        showMenu();
+
+        printf("<--------- Welcome to the Cricket Tournament --------->\n");
+        printf("1. Display Team 1 Information\n");
+        printf("2. Display Team 2 Information\n");
+        printf("3. Team Player Runs\n");
+        printf("4. Younger Player Information\n");
+        printf("5. Most Rated Player Team 1\n");
+        printf("6. Most Rated Player Team 2\n");
+        printf("7. Man of the Match\n");
+
         fflush(stdin);
         printf("Enter: ");
         scanf(" %c", &ch);
 
-        if(ch == 'q' || ch == 'Q'){
+        if (ch == 'q' || ch == 'Q')
+        {
             printf("Thank you");
             exit(0);
-        }else {
-
-            if(ch  == '1'){
-                displayTeam1Info();
-            }else if(ch == '2'){
-                displayTeam2Info();
-            }else if(ch == '3'){
-                updateRun();
-            }else if(ch == '4'){
-                YoungerPlayer();
-            }else if(ch == '5'){
-                MostRatedPlayerTeam1();
-            }else if(ch == '6'){
-                MostRatedPlayerTeam2();
-            }else if(ch == '7'){
-                ManofTheMatch();
-            }
-
-            char ignote;
-            printf("Press any key to continue...");
-            getc(ignote);
         }
-    }while (1);
+
+        switch (ch)
+        {
+        case '1':
+            displayTeam1Info();
+            break;
+        case '2':
+            displayTeam2Info();
+            break;
+        case '3':
+            updateRun();
+            break;
+        case '4':
+            YoungerPlayer();
+            break;
+        case '5':
+            MostRatedPlayerTeam1();
+            break;
+        case '6':
+            MostRatedPlayerTeam2();
+            break;
+        case '7':
+            ManofTheMatch();
+            break;
+        default:
+            printf("Invalid Choice\n");
+        }
+        getch();
+    } while (true);
 }

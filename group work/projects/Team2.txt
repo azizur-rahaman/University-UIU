@@ -1,7 +1,3 @@
-
-
-
-
 Smith 32 9000 10
 Warner 35 11000 3
 Cummins 28 500 200

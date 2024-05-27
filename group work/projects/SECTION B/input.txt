@@ -1,0 +1,73 @@
+Mehidy Hasan Miraz
+25
+Allrounder
+70
+775
+100
+Mohammad Mushfiqur Rahim
+35
+Wicketkeeper Batter
+243
+6945
+144
+Mohammad Mahmudullah
+37
+Allrounder
+218
+4950
+128
+Mustafizur Rahman
+27
+Bowler
+86
+3531
+142
+Shakib Al Hasan
+35
+Allrounder
+228
+7069
+134
+Tamim Iqbal Khan
+33
+Opening Batter
+235
+8146
+158
+Litton Das
+29
+Opening Batter
+72
+2435
+136
+Taskin Ahmed
+27
+Fast Bowler
+58
+782
+70
+Soumya Sarkar
+30
+Allrounder
+61
+1232
+118
+Afif Hossain
+24
+Allrounder
+30
+586
+145
+Najmul Hossain Shanto
+25
+Batter
+20
+950
+148
+Ebadot Hossain
+29
+Fast Bowler
+45
+1234
+142
+

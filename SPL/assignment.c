@@ -46,7 +46,7 @@ void sortByKPI(struct Player p[], int n){
 
 
 
-void earchById(struct Player p[], int n, int id){
+void searchById(struct Player p[], int n, int id){
     for (int i=0; i<n; i++){
         if(p[i].id == id){
             printf("Name: %s\n", p[i].name);
@@ -129,6 +129,5 @@ int main(){
 
 
     return 0;
-    
 
 }
