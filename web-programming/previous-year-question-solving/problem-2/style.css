@@ -1,0 +1,64 @@
+:root{
+    --bg-color: white;
+}
+
+body{
+    background-color: var(--bg-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid gray;
+    height: 10vh;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.brand-logo {
+    height: 40px;
+    width: 40px;
+}
+.navbar-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.nav-bar-free-btn{
+    background-color: #0976a7;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.main-body {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
+    height: 90vh;
+}
+
+.left-section{
+    background-color: #0976a7;
+    padding: 10px;
+}
+
+.feedback{
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-avatar{
+    height: 40px;
+    width: 40px;
+}
